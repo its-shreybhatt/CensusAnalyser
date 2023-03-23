@@ -6,7 +6,7 @@ public class StateCensusTest {
     public static final String INDIA_STATE_CENSUS_DATA = "./src/test/resources/IndiaStateCensusData.csv";
     public static final String WRONG_CENSUS_DATA = ".//main/resources/IndiaStateCensusData.csv";
     public static final String CORRECT_STATE_CENSUS_DATA = "./src/test/resources/IndiaStateCensusData.txt";
-    public static final String DELIMETER_STATE_CENSUS_DATA = ".,src,test,resources,IndiaStateCensusData.txt";
+    public static final String DELIMETER_STATE_CENSUS_DATA = ".,src,test,resources,IndiaStateCensusData.csv";
 
     @Test
     public void givenCensusData_CheckNumberOfRecords_AndPassTheTest() {

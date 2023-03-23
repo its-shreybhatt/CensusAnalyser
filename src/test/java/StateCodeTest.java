@@ -6,7 +6,7 @@ public class StateCodeTest {
     public static final String INDIA_STATE_CODE_DATA = "./src/test/resources/IndiaStateCode.csv";
     public static final String WRONG_CODE_DATA = ".//main/resources/IndiaStateCode.csv";
     public static final String CORRECT_STATE_CODE_DATA = "./src/test/resources/IndiaStateCode.txt";
-
+    public static final String DELIMETER_STATE_CENSUS_DATA = ".,src,test,resources,IndiaStateCode.csv";
     @Test
     public void givenCodeData_CheckNumberOfRecords_AndPassTheTest() {
         try {
@@ -32,7 +32,17 @@ public class StateCodeTest {
     public void givenCodeData_CheckNumberOfRecords_ShouldThrowException() {
         try {
             IndianCodeCensus indianStateCode = new IndianCodeCensus();
-            indianStateCode.loadIndiaCodeData(WRONG_CODE_DATA);
+            indianStateCode.loadIndiaCodeData(CORRECT_STATE_CODE_DATA);
+        } catch (CensusAnalyserException e) {
+            Assert.assertEquals(CensusAnalyserException.ExceptionType.CODE_FILE_PROBLEM, e.type);
+        }
+    }
+
+    @Test
+    public void givenCodeData_WithIncorrectDelimiter_ShouldThrowException() {
+        try {
+            IndianCodeCensus indianStateCode = new IndianCodeCensus();
+            indianStateCode.loadIndiaCodeData(DELIMETER_STATE_CENSUS_DATA);
         } catch (CensusAnalyserException e) {
             Assert.assertEquals(CensusAnalyserException.ExceptionType.CODE_FILE_PROBLEM, e.type);
         }
