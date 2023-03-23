@@ -48,4 +48,14 @@ public class StateCensusTest {
             Assert.assertEquals(CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM,e.type);
         }
     }
+
+    @Test
+    public void givenCensusData_WithIncorrectHeader_ShouldThrowException() {
+        try {
+            IndianStateCensus indianStateCensus = new IndianStateCensus();
+            indianStateCensus.loadIndiaCensusData(INDIA_STATE_CENSUS_DATA);
+        } catch (CensusAnalyserException e) {
+            Assert.assertEquals(CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM, e.type);
+        }
+    }
 }

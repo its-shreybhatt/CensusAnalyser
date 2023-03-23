@@ -1,16 +1,16 @@
 import com.opencsv.bean.CsvBindByName;
 
 public class IndiaCensusCSV {
-    @CsvBindByName(column = "State", required = true)
+    @CsvBindByName(column = "City", required = true)
     public String state;
 
-    @CsvBindByName(column = "Population", required = true)
+    @CsvBindByName(column = "Pollution", required = true)
     public int population;
 
-    @CsvBindByName(column = "AreaInSqKm", required = true)
+    @CsvBindByName(column = "Area", required = true)
     public int areaInSqKm;
 
-    @CsvBindByName(column = "DensityPerSqKm", required = true)
+    @CsvBindByName(column = "Dense", required = true)
     public int densityPerSqKm;
 
     @Override
