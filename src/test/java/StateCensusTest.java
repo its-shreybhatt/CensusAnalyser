@@ -5,6 +5,7 @@ public class StateCensusTest {
 
     public static final String INDIA_STATE_CENSUS_DATA = "./src/test/resources/IndiaStateCensusData.csv";
     public static final String WRONG_CENSUS_DATA = ".//main/resources/IndiaStateCensusData.csv";
+    public static final String CORRECT_STATE_CENSUS_DATA = "./src/test/resources/IndiaStateCensusData.txt";
 
     @Test
     public void givenCensusData_CheckNumberOfRecords_AndPassTheTest()  {
@@ -18,13 +19,22 @@ public class StateCensusTest {
     }
 
     @Test
-    public void givenWrongCensusData_CheckNumberOfRecords_ShouldThrowException()  {
+    public void givenWrongCensusData_CheckForThePath_ShouldThrowException()  {
         try{
             IndianStateCensus indianStateCensus = new IndianStateCensus();
             indianStateCensus.loadIndiaCensusData(WRONG_CENSUS_DATA);
         }catch (CensusAnalyserException e){
             Assert.assertEquals(CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM,e.type);
         }
+    }
 
+    @Test
+    public void givenCensusData_CheckNumberOfRecords_ShouldThrowException()  {
+        try{
+            IndianStateCensus indianStateCensus = new IndianStateCensus();
+            indianStateCensus.loadIndiaCensusData(CORRECT_STATE_CENSUS_DATA);
+        }catch (CensusAnalyserException e){
+            Assert.assertEquals(CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM,e.type);
+        }
     }
 }
