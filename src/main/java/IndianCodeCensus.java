@@ -12,15 +12,15 @@ public class IndianCodeCensus {
     public int loadIndiaCodeData(String csvFilePath) {
         try {
             Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
-            CsvToBeanBuilder<IndiaCodeScv> csvToBeanBuilder = new CsvToBeanBuilder<>(reader);
-            csvToBeanBuilder.withType(IndiaCodeScv.class);
+            CsvToBeanBuilder<IndiaCodeCSV> csvToBeanBuilder = new CsvToBeanBuilder<>(reader);
+            csvToBeanBuilder.withType(IndiaCodeCSV.class);
             csvToBeanBuilder.withIgnoreLeadingWhiteSpace(true);
-            CsvToBean<IndiaCodeScv> csvToBean = csvToBeanBuilder.build();
-            Iterator<IndiaCodeScv> censusCSVIterator = csvToBean.iterator();;
+            CsvToBean<IndiaCodeCSV> csvToBean = csvToBeanBuilder.build();
+            Iterator<IndiaCodeCSV> censusCSVIterator = csvToBean.iterator();;
             int namOfEateries = 0;
             while (censusCSVIterator.hasNext()) {
                 namOfEateries++;
-                IndiaCodeScv censusData = censusCSVIterator.next();
+                IndiaCodeCSV censusData = censusCSVIterator.next();
             }
             return namOfEateries;
         } catch (IOException e) {
