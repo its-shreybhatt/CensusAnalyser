@@ -9,7 +9,7 @@ import java.util.Iterator;
 
 public class IndianCodeCensus {
 
-    public int loadIndiaCensusData(String csvFilePath) {
+    public int loadIndiaCodeData(String csvFilePath) {
         try {
             Reader reader = Files.newBufferedReader(Paths.get(csvFilePath));
             CsvToBeanBuilder<IndiaCodeScv> csvToBeanBuilder = new CsvToBeanBuilder<>(reader);
@@ -25,7 +25,7 @@ public class IndianCodeCensus {
             return namOfEateries;
         } catch (IOException e) {
             throw new CensusAnalyserException(e.getMessage(),
-                    CensusAnalyserException.ExceptionType.CENSUS_FILE_PROBLEM);
+                    CensusAnalyserException.ExceptionType.CODE_FILE_PROBLEM);
         }
     }
 }

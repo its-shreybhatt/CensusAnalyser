@@ -5,12 +5,6 @@ public class IndiaCodeScv {
     @CsvBindByName(column = "SrNo", required = true)
     public int SrNo;
 
-//    @CsvBindByName(column = "State", required = true)
-//    public String State;
-//
-//    @CsvBindByName(column = "Name", required = true)
-//    public String Name;
-
     @CsvBindByName(column = "State_Name", required = true)
     public String State_Name;
 
